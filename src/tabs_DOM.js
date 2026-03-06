@@ -25,7 +25,6 @@ const setView = (activeView)=>{
 
   activeView.style.display = "block";
   activeView.classList.add("active-page");
-  console.log(pageArr);
 }
 
 
