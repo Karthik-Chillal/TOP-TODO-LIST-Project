@@ -22,12 +22,15 @@
       <div class="main-content">
         <div class="today-page">
           <div class="today-title">Today</div>
+          <button class="add-task-btn">Add Task</button>
         </div>
         <div class="week-page">
           <div class="week-title">This Week</div>
+          <button class="add-taskd-btn">Add Task</button>
         </div>
         <div class="month-page">
           <div class="month-title">This Month</div>
+          <button class="add-task-btn">Add Task</button>
         </div>
       </div>
     </main>
@@ -45,9 +48,13 @@
         </div>
 
         <div class="task-priority-div">
-          <div class="priority-option low-priority">Low</div>
-          <div class="priority-option medium-priority">Medium</div>
-          <div class="priority-option high-priority">High</div>
+          <button type="button" class="priority-option low-priority">Low</button>
+          <button type="button" class="priority-option medium-priority">Medium</button>
+          <button type="button" class="priority-option high-priority">High</button>
+        </div>
+        <div class="task-due-date">
+          <label for="due-date">Due Date</label>
+          <input type="date" name="due-date" id="due-date">
         </div>
         <div class="form-buttons">
           <button type="button" class="form-cancel-btn">Cancel</button>

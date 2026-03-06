@@ -13,7 +13,7 @@ body{
 
 /* sidebar styling */
 .sidebar{
-  width: 300px;
+  width: min(300px, 50vw);
   border: solid 1px white;
   min-height: 100vh;
 }
@@ -23,3 +23,23 @@ body{
   cursor: pointer;
   text-align: center;
 }
+
+
+/*dialog box styling */
+.tasks-dialog{
+  margin: auto;
+  width: min(400px, 80%);
+  min-height: 500px;
+  padding: 50px;
+}
+.task-priority-div{
+  display: flex;
+}
+.task-priority-div > div {
+  margin: 5px;
+}
+.task-desc-div > textarea {
+  width: 100%;
+  resize: vertical;
+}
+
