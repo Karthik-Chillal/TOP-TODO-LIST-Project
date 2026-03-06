@@ -28,9 +28,10 @@ body{
 /*dialog box styling */
 .tasks-dialog{
   margin: auto;
-  width: min(400px, 80%);
-  min-height: 500px;
+  width: min(500px, 80%);
+  min-height: 600px;
   padding: 50px;
+  border-radius: 20px;
 }
 .task-priority-div{
   display: flex;

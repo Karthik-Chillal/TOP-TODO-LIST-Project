@@ -26,7 +26,7 @@
         </div>
         <div class="week-page">
           <div class="week-title">This Week</div>
-          <button class="add-taskd-btn">Add Task</button>
+          <button class="add-task-btn">Add Task</button>
         </div>
         <div class="month-page">
           <div class="month-title">This Month</div>
@@ -47,14 +47,17 @@
           <textarea name="task-desc" id="task-desc"></textarea>
         </div>
 
-        <div class="task-priority-div">
-          <button type="button" class="priority-option low-priority">Low</button>
-          <button type="button" class="priority-option medium-priority">Medium</button>
-          <button type="button" class="priority-option high-priority">High</button>
+        <div class="task-due-date-div">
+          <label for="task-due-date">Due Date</label>
+          <input type="date" name="due-date" id="task-due-date">
         </div>
-        <div class="task-due-date">
-          <label for="due-date">Due Date</label>
-          <input type="date" name="due-date" id="due-date">
+        <div class="task-priority-div">
+          <input type="radio" name="priority" id="low-priority" value="low">
+          <label for="low-priority">Low</label>
+          <input type="radio" name="priority" id="medium-priority" value="medium">
+          <label for="medium-priority">Medium</label>
+          <input type="radio" name="priority" id="high-priority" value="high">
+          <label for="high-priority">High</label>
         </div>
         <div class="form-buttons">
           <button type="button" class="form-cancel-btn">Cancel</button>
