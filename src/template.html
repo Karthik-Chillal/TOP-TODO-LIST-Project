@@ -31,5 +31,29 @@
         </div>
       </div>
     </main>
+    <dialog class="tasks-dialog">
+      <form action="">
+        <div>New Task</div>
+        <div class="task-title-div">
+          <label for="task-title">Task Title</label>
+          <input type="text" name="task-title" id="task-title">
+        </div>
+
+        <div class="task-desc-div">
+          <label for="task-desc">Description</label>
+          <textarea name="task-desc" id="task-desc"></textarea>
+        </div>
+
+        <div class="task-priority-div">
+          <div class="priority-option low-priority">Low</div>
+          <div class="priority-option medium-priority">Medium</div>
+          <div class="priority-option high-priority">High</div>
+        </div>
+        <div class="form-buttons">
+          <button type="button" class="form-cancel-btn">Cancel</button>
+          <button type="submit" class="form-submit-btn">Add Task</button>
+        </div>
+      </form>
+    </dialog>
   </body>
 </html>

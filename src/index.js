@@ -1,3 +1,4 @@
 import "./styles.css";
 import "./tabs_DOM.js";
-import "./initialDOM.js"
+import "./DOM/initialDOM.js";
+import "./DOM/dialog.js";
