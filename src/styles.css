@@ -44,3 +44,13 @@ body{
   resize: vertical;
 }
 
+
+
+/*card stylign */
+.card-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+.card-container > div {
+  height: 300px;
+}

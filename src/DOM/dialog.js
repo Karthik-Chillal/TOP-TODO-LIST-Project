@@ -1,5 +1,7 @@
 import { taskArr } from "../app_Logic/task_data.js";
 import { sortTasks } from "../app_Logic/task_sort.js";
+import { buildtaskArrs, todayArr, weekArr, monthArr } from "../app_Logic/task_data.js";
+import { renderTasks } from "./createCard.js";
 let id = 1;
 const dialog = document.querySelector(".tasks-dialog");
 const form = dialog.querySelector("form");
@@ -29,7 +31,14 @@ form.addEventListener("submit", (e)=>{
   taskArr.push(task);
   sortTasks();
   form.reset();
-  console.log(taskArr);
+  buildtaskArrs();
+  console.log
+  renderTasks(todayArr, document.querySelector(".today-card-container"));
+  renderTasks(weekArr, document.querySelector(".week-card-container"));
+  renderTasks(monthArr, document.querySelector(".month-card-container"));
+
+
+
 
 
 
