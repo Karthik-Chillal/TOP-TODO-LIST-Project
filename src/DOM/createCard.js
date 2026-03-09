@@ -19,15 +19,20 @@ const createTaskCard = (task)=>{
   const buttonsDiv = document.createElement("div");
   const edit = document.createElement("button");
   edit.textContent="Edit";
+  edit.classList.add("edit-btn");
+
   const del = document.createElement("button");
   del.textContent = 'Delete';
   buttonsDiv.append(edit, del);
+  del.classList.add("del-btn");
 
   card.appendChild(title);
   card.appendChild(desc);
   card.appendChild(dueDate);
   card.appendChild(priority);
   card.appendChild(buttonsDiv);
+
+  card.id = task.id;
 
   return card;
 }
