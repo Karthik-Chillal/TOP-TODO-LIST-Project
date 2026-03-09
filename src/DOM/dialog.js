@@ -32,7 +32,7 @@ form.addEventListener("submit", (e)=>{
   sortTasks();
   form.reset();
   buildtaskArrs();
-  console.log
+  // console.log
   renderTasks(todayArr, document.querySelector(".today-card-container"));
   renderTasks(weekArr, document.querySelector(".week-card-container"));
   renderTasks(monthArr, document.querySelector(".month-card-container"));

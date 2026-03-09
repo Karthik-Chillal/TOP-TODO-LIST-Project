@@ -2,6 +2,7 @@ import { format } from "date-fns";
 
 const createTaskCard = (task)=>{
   const card = document.createElement("div");
+  card.id = task.id;
   card.classList.add("task-card");
 
   const title = document.createElement("h3");
@@ -20,11 +21,13 @@ const createTaskCard = (task)=>{
   const edit = document.createElement("button");
   edit.textContent="Edit";
   edit.classList.add("edit-btn");
+  edit.dataset.id = task.id;
 
   const del = document.createElement("button");
   del.textContent = 'Delete';
   buttonsDiv.append(edit, del);
   del.classList.add("del-btn");
+  del.dataset.id = task.id;
 
   card.appendChild(title);
   card.appendChild(desc);
@@ -32,7 +35,6 @@ const createTaskCard = (task)=>{
   card.appendChild(priority);
   card.appendChild(buttonsDiv);
 
-  card.id = task.id;
 
   return card;
 }
