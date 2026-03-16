@@ -13,9 +13,25 @@ export const buildtaskArrs = ()=>{
 
   taskArr.forEach(task => {
     task.id  = taskId;
-    if (isToday(task.dueDate))   todayArr.push(task);
-    if (isThisWeek(task.dueDate)) weekArr.push(task);
-    if (isThisMonth(task.dueDate)) monthArr.push(task);
+    const dueDate = new Date(task.dueDate); // ensure it's a Date
+    if (isToday(dueDate))   todayArr.push(task);
+    if (isThisWeek(dueDate)) weekArr.push(task);
+    if (isThisMonth(dueDate)) monthArr.push(task);
     taskId+=1;
   });
+}
+
+export const saveToStorage = ()=>{
+  localStorage.setItem("tasks", JSON.stringify(taskArr));
+}
+
+export const loadFromStorage = () =>{
+  const saved = localStorage.getItem("tasks");
+  if(saved){
+    const parsed = JSON.parse(saved);
+    parsed.forEach(task => {
+      task.dueDate = new Date(task.dueDate);
+      taskArr.push(task);
+    });
+  }
 }

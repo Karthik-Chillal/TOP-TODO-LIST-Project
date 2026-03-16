@@ -1,6 +1,6 @@
 import { deleteTask } from "../app_Logic/task_delete_logic.js";
 import { deleteCard } from "./task_delete_DOM.js";
-import { taskArr } from "../app_Logic/task_data.js";
+import { saveToStorage, taskArr } from "../app_Logic/task_data.js";
 import { formatISO9075 } from "date-fns";
 
 document.addEventListener("click", (e) => {
@@ -32,6 +32,7 @@ document.addEventListener("click", (e) => {
     console.log(formBtn);
 
     dialog.showModal();
+    saveToStorage();
 
   }
 });

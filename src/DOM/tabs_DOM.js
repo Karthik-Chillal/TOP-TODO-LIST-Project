@@ -1,5 +1,8 @@
 
 
+import { renderTasks } from "./createCard.js";
+import { todayArr, weekArr, monthArr } from "../app_Logic/task_data.js";
+
 //page
 const todayPage = document.querySelector(".today-page");
 const weekPage = document.querySelector(".week-page");
@@ -30,12 +33,15 @@ const setView = (activeView)=>{
 
 export const todayTab = ()=>{
   setView(todayPage);
+  renderTasks(todayArr, todayPage.querySelector(".today-card-container"));
 }
 export const weekTab = ()=>{
   setView(weekPage);
+  renderTasks(weekArr, weekPage.querySelector(".week-card-container"));
 }
 export const monthTab = ()=>{
   setView(monthPage);
+  renderTasks(monthArr, monthPage.querySelector(".month-card-container"));
 }
 
 
