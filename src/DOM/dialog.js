@@ -8,6 +8,8 @@ const form = dialog.querySelector("form");
 const addTaskBtn = document.querySelectorAll(".add-task-btn");
 addTaskBtn.forEach((btn)=>{
   btn.addEventListener("click" , ()=>{
+    const formBtn = document.querySelector(".form-submit-btn");
+    formBtn.textContent = "Add Task";
     dialog.showModal();
   })
 });
@@ -25,10 +27,26 @@ form.addEventListener("submit", (e)=>{
   const dueDate = form.querySelector("#task-due-date").value;
   const checked = form.querySelector("input[name='priority']:checked");
   const priority = checked ? checked.value : null;
-  const task={id, title, desc, dueDate, priority};
-  id+=1;
+  // const task={id, title, desc, dueDate, priority};
+  // const taskBtn = document.querySelector(".form-submit-btn");
+
+  if (form.dataset.editId) {
+    // ✅ EDIT MODE — update existing task
+    const editid   = Number(form.dataset.editId);
+    const task = taskArr.find(t => t.id === editid);
+    task.title    = title;
+    task.desc     = desc;
+    task.dueDate  = dueDate;
+    task.priority = priority;
+    delete form.dataset.editId; // ✅ clear edit mode after done
+    // console.log(task.dueDate);
+
+  } else {
+    // ✅ CREATE MODE — push new task
+    taskArr.push({ id, title, desc, dueDate, priority });
+    id += 1;
+  }
   dialog.close();
-  taskArr.push(task);
   sortTasks();
   form.reset();
   buildtaskArrs();

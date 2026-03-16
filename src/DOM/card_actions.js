@@ -1,6 +1,7 @@
 import { deleteTask } from "../app_Logic/task_delete_logic.js";
 import { deleteCard } from "./task_delete_DOM.js";
 import { taskArr } from "../app_Logic/task_data.js";
+import { formatISO9075 } from "date-fns";
 
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("del-btn")) {
@@ -19,12 +20,18 @@ document.addEventListener("click", (e) => {
     // pre-fill the form
     form.querySelector("#task-title").value = task.title;
     form.querySelector("#task-desc").value = task.desc;
-    form.querySelector("#task-due-date").value = task.dueDate;
+    const result = formatISO9075(task.dueDate, { representation: 'date' })
+    // console.log(result);
+    form.querySelector("#task-due-date").value = result;
     form.querySelector(`input[value="${task.priority}"]`).checked = true;
 
     // store the id so submit knows which task to update
     form.dataset.editId = id;
+    const formBtn = form.querySelector(".form-submit-btn");
+    formBtn.textContent = "Edit";
+    console.log(formBtn);
 
     dialog.showModal();
+
   }
 });
