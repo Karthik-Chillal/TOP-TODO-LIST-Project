@@ -3,6 +3,7 @@ import { deleteCard } from "./task_delete_DOM.js";
 import { buildtaskArrs, saveToStorage, taskArr, todayArr, weekArr, monthArr } from "../app_Logic/task_data.js";
 import { formatISO9075 } from "date-fns";
 import { renderTasks } from "./createCard.js";
+import { sortTasks } from "../app_Logic/task_sort.js";
 
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("del-btn")) {
@@ -44,6 +45,7 @@ document.addEventListener("click", (e) => {
     const task = taskArr.find((t)=> t.id === id);
     task.done = !task.done;
     saveToStorage();
+    sortTasks();
     buildtaskArrs();
     renderTasks(todayArr, document.querySelector(".today-card-container"));
     renderTasks(weekArr, document.querySelector(".week-card-container"));
