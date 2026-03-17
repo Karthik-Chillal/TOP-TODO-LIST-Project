@@ -66,3 +66,14 @@ aside{
   height: 300px;
   background-color: white;
 }
+
+
+
+/* On completion: */
+.task-completed {
+  opacity: 0.5;
+}
+
+.task-completed h3 {
+  text-decoration: line-through;
+}

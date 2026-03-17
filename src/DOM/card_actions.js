@@ -1,7 +1,8 @@
 import { deleteTask } from "../app_Logic/task_delete_logic.js";
 import { deleteCard } from "./task_delete_DOM.js";
-import { saveToStorage, taskArr } from "../app_Logic/task_data.js";
+import { buildtaskArrs, saveToStorage, taskArr, todayArr, weekArr, monthArr } from "../app_Logic/task_data.js";
 import { formatISO9075 } from "date-fns";
+import { renderTasks } from "./createCard.js";
 
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("del-btn")) {
@@ -21,7 +22,6 @@ document.addEventListener("click", (e) => {
     form.querySelector("#task-title").value = task.title;
     form.querySelector("#task-desc").value = task.desc;
     const result = formatISO9075(task.dueDate, { representation: 'date' })
-    // console.log(result);
     form.querySelector("#task-due-date").value = result;
     form.querySelector(`input[value="${task.priority}"]`).checked = true;
 
@@ -32,7 +32,21 @@ document.addEventListener("click", (e) => {
     console.log(formBtn);
 
     dialog.showModal();
-    saveToStorage();
 
   }
 });
+
+
+// Event Listener for complete button:
+document.addEventListener("click", (e) => {
+  if(e.target.classList.contains("done-btn")){
+    const id = Number(e.target.dataset.id);
+    const task = taskArr.find((t)=> t.id === id);
+    task.done = !task.done;
+    saveToStorage();
+    buildtaskArrs();
+    renderTasks(todayArr, document.querySelector(".today-card-container"));
+    renderTasks(weekArr, document.querySelector(".week-card-container"));
+    renderTasks(monthArr, document.querySelector(".month-card-container"));
+  }
+})

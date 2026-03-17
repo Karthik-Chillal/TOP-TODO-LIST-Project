@@ -6,14 +6,18 @@ const priorityRank = {
   low: 2
 };
 export const sortTasks = () =>{
-  taskArr.forEach(task => {
-    task.dueDate = new Date(task.dueDate);
-  });
   taskArr.sort((a, b)=>{
-    const dateDiff = compareAsc(a.dueDate, b.dueDate);
+    const dateDiff = compareAsc(new Date(a.dueDate), new Date(b.dueDate));
     if(dateDiff!=0){
       return dateDiff;
     }
-    return priorityRank[a.priority] - priorityRank[b.priority];
+    return (priorityRank[a.priority] - priorityRank[b.priority]);
   });
+  taskArr.sort((a, b) => {
+    taskArr.sort((a, b) =>
+    (a.done - b.done) ||                                         // 1. completed goes last
+    compareAsc(new Date(a.dueDate), new Date(b.dueDate)) ||      // 2. then date
+    (priorityRank[a.priority] - priorityRank[b.priority])        // 3. then priority
+  );
+  })
 };
