@@ -1,5 +1,7 @@
 import { taskArr } from "./task_data.js";
 
+// Check if localStorage is available and writable.
+// source: general best practice for storage feature detection.
 function storageAvailable(type) {
   let storage;
   try {
@@ -18,17 +20,18 @@ function storageAvailable(type) {
     );
   }
 }
+
+// Report storage availability for debugging.
 if (storageAvailable("localStorage")) {
-  // Yippee! We can use localStorage awesomeness
   console.log("local storage working");
 } else {
-  // Too bad, no localStorage for us
-  console.log("local storage not working")
+  console.log("local storage not working");
 }
 
-if(taskArr.length == 0){
-  populateStorage();
-}
-else{
-
+// If there are no tasks in memory yet, populate storage as a fallback.
+// This block may be a placeholder for future initialization logic.
+if (taskArr.length == 0) {
+  populateStorage && populateStorage();
+} else {
+  // no-op when tasks already present
 }

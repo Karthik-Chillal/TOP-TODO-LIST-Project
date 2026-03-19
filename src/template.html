@@ -4,11 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Just Do It!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
   </head>
   <body>
     <aside>
       <div class="sidebar">
+        <!-- Profile area -->
         <div class="profile">User Name</div>
+        
+        <!-- Tab navigation -->
         <div class="tabs">
           <div class="today-btn tab-btn">Today</div>
           <div class="week-btn tab-btn">Week</div>
@@ -17,66 +23,71 @@
         </div>
       </div>
     </aside>
+    
     <main>
       <div class="main-title"></div>
       <div class="main-content">
-        <div class="today-page">
+        <!-- Today view -->
+        <div class="today-page page">
           <div>
-            <div class="today-title">Today</div>
+            <div class="today-title timeline-title">Today</div>
             <button class="add-task-btn">Add Task</button>
           </div>
-          <div class="today-card-container card-container">
-
-          </div>
+          <div class="today-card-container card-container"></div>
         </div>
-        <div class="week-page">
+
+        <!-- Week view -->
+        <div class="week-page page">
           <div>
-            <div class="week-title">This Week</div>
+            <div class="week-title timeline-title">This Week</div>
             <button class="add-task-btn">Add Task</button>
           </div>
-          <div class="week-card-container card-container">
-
-          </div>
+          <div class="week-card-container card-container"></div>
         </div>
-        <div class="month-page">
+
+        <!-- Month view -->
+        <div class="month-page page">
           <div>
-            <div class="month-title">This Month</div>
+            <div class="month-title timeline-title">This Month</div>
             <button class="add-task-btn">Add Task</button>
           </div>
-          <div class="month-card-container card-container">
-
-          </div>
+          <div class="month-card-container card-container"></div>
         </div>
       </div>
     </main>
+
+    <!-- Dialog for create/edit tasks -->
     <dialog class="tasks-dialog">
-      <form>
-        <div>New Task</div>
+      <form autocomplete="off">
+        <div class="dialog-title">New Task</div>
+
         <div class="task-title-div">
           <label for="task-title">Task Title</label>
-          <input type="text" name="task-title" id="task-title">
+          <input type="text" name="task-title" id="task-title" autocomplete="off">
         </div>
 
         <div class="task-desc-div">
           <label for="task-desc">Description</label>
-          <textarea name="task-desc" id="task-desc"></textarea>
+          <textarea name="task-desc" id="task-desc" autocomplete="off"></textarea>
         </div>
 
         <div class="task-due-date-div">
           <label for="task-due-date">Due Date</label>
-          <input type="date" name="due-date" id="task-due-date">
+          <input type="date" name="due-date" id="task-due-date" autocomplete="off">
         </div>
+
         <div class="task-priority-div">
-          <input type="radio" name="priority" id="low-priority" value="low">
+          <input type="radio" name="priority" id="low-priority" value="low" autocomplete="off">
           <label for="low-priority">Low</label>
-          <input type="radio" name="priority" id="medium-priority" value="medium">
+          <input type="radio" name="priority" id="medium-priority" value="medium" autocomplete="off">
           <label for="medium-priority">Medium</label>
-          <input type="radio" name="priority" id="high-priority" value="high">
+          <input type="radio" name="priority" id="high-priority" value="high" autocomplete="off">
           <label for="high-priority">High</label>
         </div>
+
         <div class="form-buttons">
-          <button type="button" class="form-cancel-btn">Cancel</button>
-          <button type="submit" class="form-submit-btn">Add Task</button>
+          <button type="button" class="form-cancel-btn dialog-btn">Cancel</button>
+          <button type="submit" class="form-submit-btn dialog-btn">Add Task</button>
         </div>
       </form>
     </dialog>

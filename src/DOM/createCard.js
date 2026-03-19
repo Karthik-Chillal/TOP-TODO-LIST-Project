@@ -26,6 +26,7 @@ const createTaskCard = (task) => {
 
   // action buttons container
   const buttonsDiv = document.createElement("div");
+  buttonsDiv.classList.add("task-actions");
 
   // edit button
   const edit = document.createElement("button");

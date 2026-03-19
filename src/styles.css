@@ -1,3 +1,9 @@
+:root{
+  --primary: rgb(255, 115, 0);
+
+}
+
+
 *{
   margin: 0;
   padding: 0;
@@ -5,9 +11,13 @@
 }
 body{
   min-height: 100vh;
+  font-size: 1.2rem;
+  font-weight: 500;
   display: flex;
-  background-color: gray;
+  background-color: #0e0e0e;
   align-items: stretch;
+  color: var(--primary);
+  font-family: "Lexend";
 }
 main{
   min-height: 100vh;
@@ -17,34 +27,183 @@ main{
 
 
 /* sidebar styling */
+.profile{
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: rgb(255, 230, 0);
+}
 aside{
+  font-family: "Lexend";
   display: flex;
   flex-direction: column;
 }
 .sidebar{
-  width: min(300px, 50vw);
-  border: solid 1px white;
+  width: min(280px, 45vw);
+  border-right: solid 4px rgb(255, 230, 0);
+  border-left: solid 4px rgb(255, 230, 0);
+  background-color: #121212;
   flex-grow: 1;
   min-height: 100vh;
+  padding: 28px 10px;
+}
+.tabs{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
 }
 .tabs > div{
-  padding: 5px;
-  margin: 10px;
+  padding: 14px 10px;
+  margin: 0;
   cursor: pointer;
   text-align: center;
+  min-height: 50px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
+  color: white;
+  border: 1px solid rgba(255,255,255,.1);
+  transition: transform .2s ease, background-color .2s ease, border-color .2s ease;
+}
+.tabs > div:hover{
+  background-color: rgba(255,255,255,0.12);
+  transform: translateY(-1px);
+}
+.tabs > div.active {
+  background-color: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+
+ /* styling of main content  */
+.timeline-title{
+  font-weight: bold;
+  font-size: 4rem;
+  padding: 5px 0px;
+}
+
+.add-task-btn{
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-radius: 2px;
+  padding: 5px;
+  margin-left: 20px;
+}
+
+.page{
+  padding: 20px;
 }
 
 
 /*dialog box styling */
 .tasks-dialog{
   margin: auto;
-  width: min(500px, 80%);
-  min-height: 600px;
-  padding: 50px;
-  border-radius: 20px;
+  width: min(520px, 90%);
+  max-width: 560px;
+  min-height: auto;
+  padding: 24px;
+  border-radius: 14px;
+  background-color: #1c1f26;
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow: 0 20px 40px rgba(0,0,0,.5);
+  color: #ffffff;
+  backdrop-filter: blur(10px);
 }
-.task-priority-div{
+
+.tasks-dialog::backdrop{
+  background-color: rgba(0,0,0,.52);
+  backdrop-filter: blur(1px);
+}
+
+.tasks-dialog .dialog-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: var(--primary);
+}
+
+.tasks-dialog label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.95rem;
+  color: #f5f5f5;
+}
+
+.tasks-dialog input[type="text"],
+.tasks-dialog input[type="date"],
+.tasks-dialog textarea {
+  width: 100%;
+  padding: 10px 11px;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 8px;
+  background: #2a2e38;
+  color: #f9f9f9;
+  margin-bottom: 14px;
+}
+
+.tasks-dialog input[type="text"]:focus,
+.tasks-dialog input[type="date"]:focus,
+.tasks-dialog textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(255,115,0,.24);
+}
+
+.task-priority-div {
   display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255,255,255,.08);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  margin-bottom: 14px;
+}
+
+.task-priority-div > div, .task-priority-div > label,
+.task-priority-div > input {
+  margin: 0;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.dialog-btn {
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 8px;
+  background-color: #2f333d;
+  color: #fff;
+  padding: 8px 14px;
+  font-size: 0.94rem;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+
+.dialog-btn:hover {
+  transform: translateY(-1px);
+  background-color: rgba(255,255,255,.12);
+}
+
+.form-submit-btn {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+.form-cancel-btn {
+  background-color: transparent;
+  color: #ddd;
 }
 .task-priority-div > div {
   margin: 5px;
@@ -56,22 +215,62 @@ aside{
 
 
 
-/*card stylign */
+/*card styling */
 .card-container{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(calc((100%/4)), 1fr));
   gap: 10px;
+  padding: 10px;
 }
-.card-container > div {
-  height: 300px;
-  background-color: white;
+.task-card {
+  min-height: 270px;
+  background-color: rgb(255, 251, 0);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
+.task-card h3 {
+  margin-bottom: 8px;
+  color: #222;
+}
+.task-card p {
+  margin: 6px 0;
+  color: #222;
+}
+.task-card .task-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  margin-top: 12px;
+}
+.task-card button {
+  padding: 8px 12px;
+  border: 1px solid rgba(0,0,0,.2);
+  border-radius: 6px;
+  background: #fff;
+  color: #111;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform .14s ease, box-shadow .14s ease, background-color .14s ease;
+}
+.task-card button:hover {
+  background-color: #f2f2f2;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,0,0,.18);
+}
+.task-card button.edit-btn { border-color: #2e7fff; color: #1f56bf; }
+.task-card button.del-btn { border-color: #e34a4a; color: #a32121; }
+.task-card button.done-btn { border-color: #30aa3f; color: #1f732a; }
 
 
 /* On completion: */
 .task-completed {
   opacity: 0.5;
+
 }
 
 .task-completed h3 {
